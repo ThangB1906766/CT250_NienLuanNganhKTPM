@@ -29,7 +29,7 @@ include('./mainInclude/header.php');
                 ';
             }else{
                 echo '
-                    <a href="/Student/studentProfile.php" class="btn btn-primary mt-3">My Profile</a>
+                    <a href="/Student/thongTinNguoiMua.php" class="btn btn-primary mt-3">My Profile</a>
                 ';
             }
         ?>

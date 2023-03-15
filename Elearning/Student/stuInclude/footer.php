@@ -19,6 +19,8 @@
 <script type="text/javascript" src="/js/ajaxrequest.js"></script>
 <script type="text/javascript" src="/Student/ajaxAddAddress.js"></script>
 
+<script type="text/javascript" src="/Student/ajaxTaiDuLieuDiaChi.js"></script>
+
 
 </body>
 

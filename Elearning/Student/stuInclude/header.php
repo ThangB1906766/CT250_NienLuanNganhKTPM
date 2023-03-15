@@ -55,9 +55,9 @@ if (isset($stuLogEmail)) {
                         <li class="nav-item">
                             <a class="nav-link <?php if (PAGE == 'profile') {
                                                     echo 'active';
-                                                } ?>" href="studentProfile.php">
+                                                } ?>" href="thongTinNguoiMua.php">
                                 <i class="fas fa-user"></i>
-                                Profile <span class="sr-only">(current)</span>
+                                Thông tin tài khoản <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -65,31 +65,36 @@ if (isset($stuLogEmail)) {
                                                     echo 'active';
                                                 } ?>" href="myCourse.php">
                                 <i class="fab fa-accessible-icon"></i>
-                                My Courses
+                                Đơn hàng của bạn
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php if (PAGE == 'studentChangePass') {
                                                     echo 'active';
-                                                } ?>" href="studentChangePass.php">
+                                                } ?>" href="doiMatKhauNguoiMua.php">
                                 <i class="fas fa-key"></i>
-                                Change Password
+                                Đổi mật khẩu
                             </a>
                         </li>
                         <!-- Address Management 06/03/2023 -->
                         <li class="nav-item">
                             <a class="nav-link <?php if (PAGE == 'studentAddress') {
                                                     echo 'active';
-                                                } ?>" href="studentAddress.php">
+                                                } ?>" href="diaChiNguoiMua.php">
                                 <i class="fas fa-key"></i>
-                                Address Management
+                                Địa chỉ
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.php">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Trang chủ
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../logout.php">
                                 <i class="fas fa-sign-out-alt"></i>
-                                Logout
+                                Đăng xuất
                             </a>
                         </li>
                     </ul>
