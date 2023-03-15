@@ -1,28 +1,22 @@
 
 function updateAddress(){
-
     var hoten = $("#capnhat_hoten").val();
     var sodienthoai = $("#capnhat_sodienthoai").val();
     var sonha = $("#capnhat_sonha").val();
-
     var thanhpho = document.getElementById("capnhat_thanhpho").value;
     var tinh = document.getElementById("capnhat_tinh").value;
     var huyen = document.getElementById("capnhat_huyen").value;
     var email = document.getElementById("capnhat_email").value;
-
     var dc_id = $("#capnhat_diachi").val();
 
-
-    console.log(hoten);
-    console.log(sodienthoai);
-    console.log(sonha);
-
-    console.log(thanhpho);
-    console.log(tinh);
-    console.log(huyen);
-    console.log(email);
-
-    console.log(dc_id);
+    // console.log(hoten);
+    // console.log(sodienthoai);
+    // console.log(sonha);
+    // console.log(thanhpho);
+    // console.log(tinh);
+    // console.log(huyen);
+    // console.log(email);
+    // console.log(dc_id);
 
     var reg = /^[0-9]/;
 
@@ -56,7 +50,7 @@ function updateAddress(){
     }
     else{
         $.ajax({
-            url:'../Student/updateAddress_2.php', 
+            url:'../Student/updateAddress.php', 
             method: "POST",
             dataType: "json",
             data:{
@@ -70,17 +64,7 @@ function updateAddress(){
                 email: email,
                 dc_id: dc_id,
             }, success:function(data){   
-                // Đoạn này đang lỗi không chạy 
-                // console.log(data) // in OK || Failed
-                // if(data == "Failed"){
-                //     $('#successMsg').html("<span class='alert alert-bg-danger'> Thêm địa chỉ thất bại!</span>")
-                // }else if(data == "OK"){
-                //     $('#successMsg').html("<span class='alert alert-success'> Thêm địa chỉ thành công!</span>")
-                //     clearStuRegField();
-                //     setTimeout(()=>{
-                //         window.location.href = "/Student/studentAddress.php";
-                //     }, 800 );
-                // }
+        
             }
         });
 
@@ -90,7 +74,6 @@ function updateAddress(){
             setTimeout(()=>{
                 window.location.href = "/Student/studentAddress.php";
                 }, 300 );
-            
         } else {
             alert("Không cập nhật");
         }    

@@ -1,6 +1,6 @@
 
 <?php
-include_once("../dbconnection.php"); // Kết nối csdl
+include_once("../dbconnection.php");
 
 if (isset($_POST['stusignup']) && isset($_POST['hoten']) && isset($_POST['sodienthoai']) && isset($_POST['sonha'])) {
     $hoten = $_POST['hoten'];
@@ -11,7 +11,6 @@ if (isset($_POST['stusignup']) && isset($_POST['hoten']) && isset($_POST['sodien
     $huyen;
     $email =  $_POST['email'];
 
-    // Start Thêm địa thành phố tỉnh huyện
     $key_tp = $_POST['thanhpho']; // key = mã thành phố
     $key_tinh = $_POST['tinh'];
     $key_huyen = $_POST['huyen']; 
@@ -31,11 +30,8 @@ if (isset($_POST['stusignup']) && isset($_POST['hoten']) && isset($_POST['sodien
             $huyen = $row['huyen_ten'];
         }
     }
-    // End
-    $sql = "INSERT INTO diachi(dc_hoten, dc_sdt, dc_sonha, dc_thanhpho, dc_tinh, dc_xa, stu_email) VALUE ('$hoten' ,'$sodienthoai', '$sonha', '$thanhpho', '$tinh', '$huyen', '$email')";
 
-    // $conn->query($sql) == TRUE;
-    // echo json_encode("OK ngoài");
+    $sql = "INSERT INTO diachi(dc_hoten, dc_sdt, dc_sonha, dc_thanhpho, dc_tinh, dc_xa, stu_email) VALUE ('$hoten' ,'$sodienthoai', '$sonha', '$thanhpho', '$tinh', '$huyen', '$email')";
 
     if ($conn->query($sql) == TRUE) {
         echo json_encode("OK");

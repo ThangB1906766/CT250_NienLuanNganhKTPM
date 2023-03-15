@@ -40,7 +40,7 @@ if (isset($stuLogEmail)) {
 <body>
     <!-- Top Navbar -->
     <nav class="navbar navbar-dark fixed-top flex-md-nowrap p-0 shadow" style="background-color: #225470;">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/Student/studentProfile.php">E-Learning</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/Student/studentProfile.php">LinhKienDienTu</a>
     </nav>
 
     <!-- Side Bar -->
@@ -66,14 +66,6 @@ if (isset($stuLogEmail)) {
                                                 } ?>" href="myCourse.php">
                                 <i class="fab fa-accessible-icon"></i>
                                 My Courses
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php if (PAGE == 'feedback') {
-                                                    echo 'active';
-                                                } ?>" href="/Student/stufeedback.php">
-                                <i class="fab fa-accessible-icon"></i>
-                                Feedback
                             </a>
                         </li>
                         <li class="nav-item">

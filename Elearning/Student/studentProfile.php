@@ -79,18 +79,6 @@ if (isset($_REQUEST['updateStuNameBtn'])) {
                                                                                         } ?>">
         </div>
         <div class="form-group">
-            <label for="stuPhone">Phone</label>
-            <input type="text" class="form-control" id="stuPhone" name="stuPhone" value=" <?php if (isset($stuOcc)) {
-                                                                                            echo $stuPhone;
-                                                                                        } ?>">
-        </div>
-        <div class="form-group">
-            <label for="stuAddress">Address</label>
-            <input type="text" class="form-control" id="stuAddress" name="stuAddress" value=" <?php if (isset($stuOcc)) {
-                                                                                            echo $stuAddress;
-                                                                                        } ?>">
-        </div>
-        <div class="form-group">
             <label for="stuImg">Upload Image</label>
             <input type="file" class="form-control-file" id="stuImg" name="stuImg">
         </div>
