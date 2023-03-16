@@ -69,28 +69,28 @@ include('./mainInclude/header.php');
     <div class="row row-cols-3">
         <!-- Start Most Popular Course 1st Card Deck -->
         <?php 
-            $sql = "SELECT * FROM course LIMIT 3";
+            $sql = "SELECT * FROM sanpham LIMIT 3";
             $result = $conn->query($sql);
             if($result->num_rows > 0){ 
               while($row = $result->fetch_assoc()){
-                $course_id = $row['course_id'];
+                $sp_id = $row['sp_id'];
                 echo '
                 <div class="col">
                 <div class="card-deck mt-4">
-                    <a href="/coursedetail.php?course_id='.$course_id.'" class="btn" style="text-align: left; padding:0px; margin:0px;">
+                    <a href="/coursedetail.php?course_id='.$sp_id.'" class="btn" style="text-align: left; padding:0px; margin:0px;">
                         <div class="card">
-                            <img src="'.str_replace('..', '.',$row['course_img']).'" class="card-img-top" alt="Guitar" />
+                            <img src="'.str_replace('..', '.',$row['sp_hinhAnh']).'" class="card-img-top" alt="Guitar" />
                             <div class="card-body">
-                                <h5 class="card-title">'.$row['course_name'].'</h5>
-                                <p class="card-text">'.$row['course_desc'].'</p>
+                                <h5 class="card-title">'.$row['sp_ten'].'</h5>
+                                <p class="card-text">'.$row['sp_moTa'].'</p>
                             </div>
                             <div class="card-footer">
                                 <p class="card-text d-inline">
-                                    Price: <small><del>&#8377 '.$row['course_original_price'].'</del></small> 
-                                    <span class="font-weight-bolder">&#8377 '.$row['course_price'].'<span>
+                                    Price: <small><del>&#8377 '.$row['sp_giaGoc'].'</del></small> 
+                                    <span class="font-weight-bolder">&#8377 '.$row['sp_gia'].'<span>
                                 </p>
                                 <a class="btn btn-primary text-white font-weight-bolder float-right" 
-                                href="/coursedetail.php?course_id='.$course_id.'">Enroll</a>
+                                href="/coursedetail.php?course_id='.$sp_id.'">Enroll</a>
                             </div>
                         </div>
                     </a>
@@ -107,28 +107,28 @@ include('./mainInclude/header.php');
 
         <!-- Start Most Popular Course 2nd Card Deck -->
         <?php 
-            $sql = "SELECT * FROM course LIMIT 3, 3";
+            $sql = "SELECT * FROM sanpham LIMIT 3, 3";
             $result = $conn->query($sql);
             if($result->num_rows > 0){ 
               while($row = $result->fetch_assoc()){
-                $course_id = $row['course_id'];
+                $sp_id = $row['sp_id'];
                 echo '
                 <div class="col">
                 <div class="card-deck mt-4">
-                    <a href="/coursedetail.php?course_id='.$course_id.'" class="btn" style="text-align: left; padding:0px; margin:0px;">
+                    <a href="/coursedetail.php?course_id='.$sp_id.'" class="btn" style="text-align: left; padding:0px; margin:0px;">
                         <div class="card">
-                            <img src="'.str_replace('..', '.',$row['course_img']).'" class="card-img-top" alt="Guitar" />
+                            <img src="'.str_replace('..', '.',$row['sp_hinhAnh']).'" class="card-img-top" alt="Guitar" />
                             <div class="card-body">
-                                <h5 class="card-title">'.$row['course_name'].'</h5>
-                                <p class="card-text">'.$row['course_desc'].'</p>
+                                <h5 class="card-title">'.$row['sp_ten'].'</h5>
+                                <p class="card-text">'.$row['sp_moTa'].'</p>
                             </div>
                             <div class="card-footer">
                                 <p class="card-text d-inline">
-                                    Price: <small><del>&#8377 '.$row['course_original_price'].'</del></small> 
-                                    <span class="font-weight-bolder">&#8377 '.$row['course_price'].'<span>
+                                    Price: <small><del>&#8377 '.$row['sp_giaGoc'].'</del></small> 
+                                    <span class="font-weight-bolder">&#8377 '.$row['sp_gia'].'<span>
                                 </p>
                                 <a class="btn btn-primary text-white font-weight-bolder float-right" 
-                                href="/coursedetail.php?course_id='.$course_id.'">Enroll</a>
+                                href="/coursedetail.php?course_id='.$sp_id.'">Enroll</a>
                             </div>
                         </div>
                     </a>
@@ -154,7 +154,7 @@ include('./contact.php');
 <!-- End Contact US-->
 
 <!-- Start Students Testimonial -->
-<div class="container-fluid mt-5" style="background-color: #4B7289" id="Feedback">
+<!-- <div class="container-fluid mt-5" style="background-color: #4B7289" id="Feedback">
     <h1 class="text-center testyheading p-4"> Student's Feedback </h1>
     <div class="row">
         <div class="col-md-12">
@@ -191,7 +191,7 @@ include('./contact.php');
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Students Testimonial -->
 <!-- Start Social Follow -->
 <div class="container-fluid bg-danger">
@@ -240,4 +240,3 @@ include('./contact.php');
 <?php
 include('./mainInclude/footer.php');
 ?>
-<!-- End Include header -->

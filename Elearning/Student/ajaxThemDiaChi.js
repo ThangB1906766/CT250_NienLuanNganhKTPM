@@ -68,7 +68,7 @@ function addAddress(){
                     if (result == true) {
                         alert("Thêm thành công");
                         setTimeout(()=>{
-                            window.location.href = "/Student/studentAddress.php";
+                            window.location.href = "/Student/diaChiNguoiMua.php";
                             }, 300 );  
                     } else {
                         alert("Không thêm");

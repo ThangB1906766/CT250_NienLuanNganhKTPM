@@ -18,11 +18,11 @@ if (isset($_REQUEST['stuPassUpdateBtn'])) {
         // msg displayed if required field missing
         $passmsg = '<div class="alert alert-warning col-sm-6 ml-5 mt-2" role="alert"> Fill All Fileds </div>';
     } else {
-        $sql = "SELECT * FROM student WHERE stu_email='$stuEmail'";
+        $sql = "SELECT * FROM nguoimua WHERE nm_email='$stuEmail'";
         $result = $conn->query($sql);
         if ($result->num_rows == 1) {
             $stuPass = $_REQUEST['stuNewPass'];
-            $sql = "UPDATE student SET stu_pass = '$stuPass' WHERE stu_email = '$stuEmail'";
+            $sql = "UPDATE nguoimua SET nm_matKhau = '$stuPass' WHERE nm_email = '$stuEmail'";
             if ($conn->query($sql) == TRUE) {
                 // below msg display on form submit success
                 $passmsg = '<div class="alert alert-success col-sm-6 ml-5 mt-2" role="alert"> Updated Successfully </div>';

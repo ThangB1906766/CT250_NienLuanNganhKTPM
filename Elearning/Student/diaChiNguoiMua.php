@@ -28,7 +28,7 @@ if (isset($_SESSION['is_login'])) {
         <!-- Địa chỉ -->
         <?php
         // Đếm số lượng địa chỉ
-        $sql2 = "SELECT COUNT(dc_id) as sldc FROM diachi WHERE stu_email='$stuEmail'";
+        $sql2 = "SELECT COUNT(dc_id) as sldc FROM diachi WHERE nm_email='$stuEmail'";
         $result2 = $conn->query($sql2);
 
         if ($result2->num_rows > 0) {
@@ -41,7 +41,7 @@ if (isset($_SESSION['is_login'])) {
         }
 
         // Hiển thị 3 địa chỉ WHERE '$stuEmail'
-        $sql = "SELECT * FROM diachi WHERE stu_email= '$stuEmail' LIMIT 3 ";
+        $sql = "SELECT * FROM diachi WHERE nm_email= '$stuEmail' LIMIT 3 ";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -52,7 +52,7 @@ if (isset($_SESSION['is_login'])) {
                 $thanhpho = $row['dc_thanhpho'];
                 $huyen = $row['dc_tinh'];
                 $xa = $row['dc_xa'];
-                $email = $row['stu_email'];
+                $email = $row['nm_email'];
                 echo '
                         <div class="form-group">
                             <b>ID địa chỉ:</b> ' . $dc_id . '
@@ -72,9 +72,9 @@ if (isset($_SESSION['is_login'])) {
                         </div>
                         <div class="form-group">
                            
-                                    <a href="./giaoDienCapNhatDiaChi.php?dc_id=' . $dc_id . '" class="btn btn-primary" > Chỉnh sửa địa chỉ </a>
+                                    <a href="./giaoDienCapNhatDiaChi.php?dc_id='.$dc_id.'" class="btn btn-primary" > Chỉnh sửa địa chỉ </a>
 
-                                    <input type="hidden" name="id" value=' . $dc_id . '>
+                                    <input type="hidden" name="idDelete" value='.$dc_id.'>
                                     <button type="submit" class="btn btn-danger" name="delete" value="Delete">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
@@ -84,14 +84,10 @@ if (isset($_SESSION['is_login'])) {
                     ';
             }
         }
-        // data-bs-toggle="modal" data-bs-target="#stuAddAdressUpdate"
-
         // Xóa địa chỉ
         if (isset($_REQUEST['delete'])) { //name="delete" của button
-            $sql = "DELETE FROM diachi WHERE dc_id = {$_REQUEST['id']}"; // "id" name="id" của thẻ input
+            $sql = "DELETE FROM diachi WHERE dc_id = {$_REQUEST['idDelete']}"; // "id" name="id" của thẻ input
             if ($conn->query($sql) == TRUE) {
-                // echo "Record Deleted Successfully";
-                // refresh the page after deleted
                 echo '
             <script>
                 alert("Xóa thành công")
@@ -101,8 +97,6 @@ if (isset($_SESSION['is_login'])) {
                 echo "Unable to Delete Data";
             }
         }
-
-        // Cập nhật địa chỉ
         ?>
 
     </form>
@@ -110,5 +104,4 @@ if (isset($_SESSION['is_login'])) {
 <?php
 include('./stuInclude/footer.php');
 include('./giaoDienThemDiaChi.php');
-// include('./giaoDienCapNhatDiaChi.php');
 ?>

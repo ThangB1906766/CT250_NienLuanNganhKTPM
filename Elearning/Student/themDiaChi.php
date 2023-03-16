@@ -31,7 +31,7 @@ if (isset($_POST['stusignup']) && isset($_POST['hoten']) && isset($_POST['sodien
         }
     }
 
-    $sql = "INSERT INTO diachi(dc_hoten, dc_sdt, dc_sonha, dc_thanhpho, dc_tinh, dc_xa, stu_email) VALUE ('$hoten' ,'$sodienthoai', '$sonha', '$thanhpho', '$tinh', '$huyen', '$email')";
+    $sql = "INSERT INTO diachi(dc_hoten, dc_sdt, dc_sonha, dc_thanhpho, dc_tinh, dc_xa, nm_email) VALUE ('$hoten' ,'$sodienthoai', '$sonha', '$thanhpho', '$tinh', '$huyen', '$email')";
 
     if ($conn->query($sql) == TRUE) {
         echo json_encode("OK");

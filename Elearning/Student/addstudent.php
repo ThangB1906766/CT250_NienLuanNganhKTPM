@@ -15,7 +15,7 @@ include_once("../dbconnection.php"); // Kết nối csdl
 // Checking email registration
 if (isset($_POST['checkemail']) && isset($_POST['stuemail'])) {
     $stuemail = $_POST['stuemail'];
-    $sql = "SELECT stu_email FROM student WHERE stu_email ='" . $stuemail . "'";
+    $sql = "SELECT mn_email FROM nguoimua WHERE nm_email ='" . $stuemail . "'";
     $result = $conn->query($sql);
     $row = $result->num_rows;
     echo json_encode($row);
@@ -28,7 +28,7 @@ if (isset($_POST['stusignup']) && isset($_POST['stuname']) && isset($_POST['stue
     $stuemail = $_POST['stuemail'];
     $stupass = $_POST['stupass'];
 
-    $sql = "INSERT INTO student(stu_name, stu_email, stu_pass) VALUE ('$stuname' ,'$stuemail', '$stupass')";
+    $sql = "INSERT INTO nguoimua(nm_ten, nm_email, nm_matKhau) VALUE ('$stuname' ,'$stuemail', '$stupass')";
 
     if ($conn->query($sql) == TRUE) {
         echo json_encode("OK");
@@ -48,7 +48,7 @@ if (!isset($_SESSION['is_login'])) { // Nếu chưa login thì tiến hành ki�
         $stuLogEmail = $_POST['stuLogEmail'];
         $stuLogpass = $_POST['stuLogpass'];
 
-        $sql = "SELECT stu_email, stu_pass FROM student WHERE stu_email ='" . $stuLogEmail . "' AND stu_pass='" . $stuLogpass . "'";
+        $sql = "SELECT nm_email, nm_matKhau FROM nguoimua WHERE nm_email ='" . $stuLogEmail . "' AND nm_matKhau='" . $stuLogpass . "'";
 
         $result = $conn->query($sql);
         $row = $result->num_rows;

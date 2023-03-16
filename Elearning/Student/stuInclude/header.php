@@ -10,10 +10,10 @@ if (isset($_SESSION['is_login'])) {
 //  echo "<script> location.href='../index.php'; </script>";
 // }
 if (isset($stuLogEmail)) {
-    $sql = "SELECT stu_img FROM student WHERE stu_email = '$stuLogEmail'";
+    $sql = "SELECT nm_hinhAnh FROM nguoimua WHERE nm_email = '$stuLogEmail'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $stu_img = $row['stu_img'];
+    $stu_img = $row['nm_hinhAnh'];
 }
 ?>
 

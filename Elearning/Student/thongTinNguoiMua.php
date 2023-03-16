@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 define('TITLE', 'Student Profile');
 define('PAGE', 'profile');
 include('./stuInclude/header.php');
+
 include_once('../dbConnection.php');
 
 if (isset($_SESSION['is_login'])) {
@@ -13,16 +14,14 @@ if (isset($_SESSION['is_login'])) {
     echo "<script> location.href='../index.php'; </script>";
 }
 
-$sql = "SELECT * FROM student WHERE stu_email='$stuEmail'";
+$sql = "SELECT * FROM nguoimua WHERE nm_email='$stuEmail'";
 $result = $conn->query($sql);
 if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
-    $stuId = $row["stu_id"];
-    $stuName = $row["stu_name"];
-    $stuOcc = $row["stu_occ"];
-    $stuImg = $row["stu_img"];
-    $stuPhone = $row["stu_phone"];
-    $stuAddress = $row["stu_address"];
+    $stuId = $row["nm_id"];
+    $stuName = $row["nm_ten"];
+    $stuImg = $row["nm_hinhAnh"];
+    
 }
 
 if (isset($_REQUEST['updateStuNameBtn'])) {
@@ -31,16 +30,12 @@ if (isset($_REQUEST['updateStuNameBtn'])) {
         $passmsg = '<div class="alert alert-warning col-sm-6 ml-5 mt-2" role="alert"> Fill All Fileds </div>';
     } else {
         $stuName = $_REQUEST["stuName"];
-        $stuOcc = $_REQUEST["stuOcc"];
-
-        $stuPhone = $_REQUEST["stuPhone"];
-        $stuAddress = $_REQUEST["stuAddress"];
-
+        
         $stu_image = $_FILES['stuImg']['name'];
         $stu_image_temp = $_FILES['stuImg']['tmp_name'];
         $img_folder = '../image/stu/' . $stu_image;
         move_uploaded_file($stu_image_temp, $img_folder);
-        $sql = "UPDATE student SET stu_name = '$stuName', stu_occ = '$stuOcc', stu_phone = '$stuPhone', stu_address = '$stuAddress', stu_img = '$img_folder' WHERE stu_email = '$stuEmail'";
+        $sql = "UPDATE nguoimua SET nm_ten = '$stuName', nm_hinhAnh = '$img_folder' WHERE nm_email = '$stuEmail'";
         if ($conn->query($sql) == TRUE) {
             // below msg display on form submit success
             $passmsg = '<div class="alert alert-success col-sm-6 ml-5 mt-2" role="alert"> Updated Successfully </div>';
@@ -67,15 +62,8 @@ if (isset($_REQUEST['updateStuNameBtn'])) {
         </div>
         <div class="form-group">
             <label for="stuName">Tên Khách Hàng</label>
-            <input type="text" class="form-control" id="stuName" name="stuName" value=" <?php if (isset($stuName)) {
+            <input type="text" class="form-control" id="stuName" name="stuName" value="<?php if (isset($stuName)) {
                                                                                             echo $stuName;
-                                                                                        } ?>">
-        </div>
-        <div class="form-group">
-            <!-- Student doesnt mean school student it also means learner -->
-            <label for="stuOcc">Nghề nghiệp của khách</label>
-            <input type="text" class="form-control" id="stuOcc" name="stuOcc" value=" <?php if (isset($stuOcc)) {
-                                                                                            echo $stuOcc;
                                                                                         } ?>">
         </div>
         <div class="form-group">

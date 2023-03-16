@@ -13,17 +13,17 @@ if (isset($_SESSION['is_login'])) {
     echo "<script> location.href='../index.php'; </script>";
 }
 
-$sql = "SELECT * FROM student WHERE stu_email='$stuEmail'";
-$result = $conn->query($sql);
-if ($result->num_rows == 1) {
-    $row = $result->fetch_assoc();
-    $stuId = $row["stu_id"];
-    $stuName = $row["stu_name"];
-    $stuOcc = $row["stu_occ"];
-    $stuImg = $row["stu_img"];
-    $stuPhone = $row["stu_phone"];
-    $stuAddress = $row["stu_address"];
-}
+// $sql = "SELECT * FROM student WHERE stu_email='$stuEmail'";
+// $result = $conn->query($sql);
+// if ($result->num_rows == 1) {
+//     $row = $result->fetch_assoc();
+//     $stuId = $row["stu_id"];
+//     $stuName = $row["stu_name"];
+//     $stuOcc = $row["stu_occ"];
+//     $stuImg = $row["stu_img"];
+//     $stuPhone = $row["stu_phone"];
+//     $stuAddress = $row["stu_address"];
+// }
 
 if (isset($_REQUEST['updateStuNameBtn'])) {
     if (($_REQUEST['stuName'] == "")) {
@@ -82,7 +82,7 @@ if (isset($_REQUEST['updateStuNameBtn'])) {
 
                     </div> <br>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="capnhat_email" value="<?php echo $row['stu_email'] ?>" readonly>
+                        <input type="email" class="form-control" id="capnhat_email" value="<?php echo $row['nm_email'] ?>" readonly>
 
                     </div> <br>
                     <div class="form-group">
